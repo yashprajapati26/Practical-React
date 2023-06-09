@@ -13,11 +13,18 @@ import CompA from "./components/context/CompA";
 import { UserProvider } from "./components/context/userContext";
 import PostList from "./components/axios/PostList";
 import PostListClass from "./components/axios/PostListClass";
+import UseState from "./components/Hooks/UseState";
+import UseEffecf from "./components/Hooks/UseEffect";
+import UseReducer from "./components/Hooks/UseReducer";
+import {Provider} from 'react-redux'
+import store from './redux/store'
+import AddCake from "./components/redux/AddCake"
 function App() {
   function MyFun(name) {
     console.log("My fun called ....Hello", name);
   }
   return (
+    <Provider store={store}>
     <div className="h-screen">
       <Header title="React App">
         <li className="mx-5 text-lg">Home</li>
@@ -25,7 +32,7 @@ function App() {
         <li className="mx-5 text-lg">Login</li>
         <li className="mx-5 text-lg">Signup</li>
       </Header>
-      <div className="flex justify-center items-center">
+      <div className="flex flex-col justify-center items-center">
         {/* <Login btnname="Submit" title="Login" /> */}
         {/* <Home></Home> */}
         {/* <Portal></Portal>
@@ -46,12 +53,21 @@ function App() {
         </UserProvider> */}
 
         {/* <PostList></PostList> */}
-        <PostListClass/>
+        <UseState />
+        <UseReducer/>
+        <div>
+          <p>Cake Name : Cup Cake </p>
+          <AddCake/>
+        </div>
+        
+        {/* <PostListClass /> */}
       </div>
 
       {/* function pass in props */}
       {/* <Footer clickHandler={MyFun} /> */}
     </div>
+    </Provider>
+
   );
 }
 

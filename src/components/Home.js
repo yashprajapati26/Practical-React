@@ -1,11 +1,14 @@
-import React, { useState } from "react";
-import ProductList from "./ProductList";
+import React from "react";
 import LifeCycle from "./LifeCycle";
+import ProductList from "./ProductList";
 function Home() {
+  // intilize ref
+  let inputRef = React.createRef();
+
   function clickHandler() {
     console.log("clickHandler called");
   }
-  let inputRef = React.createRef();
+
   return (
     <div>
       <div>
@@ -19,7 +22,8 @@ function Home() {
 
         <p className="bg-gray-300">Add Product : </p>
         <input type="text" className="border" ref={inputRef}></input>
-        <button className="bg-gray-300"
+        <button
+          className="bg-gray-300"
           onClick={() => {
             alert(inputRef.current.value);
           }}

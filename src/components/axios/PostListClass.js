@@ -23,7 +23,7 @@ export default class PostListClass extends Component {
     const { posts } = this.state;
     return (
       <div>
-        List of Post
+        <h1 className = "font-bold text-xl bg-sky-500 rounded p-3 m-3"> List of Post</h1>
         {
         posts.length ?
         posts.map((post) => <div key={post.id}> {post.title}</div>):
