@@ -9,8 +9,8 @@ function Header(props) {
         <div>
         <marquee> {Welcome} <button onClick={()=>setWelcome("Thank You For Subscribe.")} className="text-red-500">Click Here</button></marquee>
       <div className="bg-blue-300">
-        <div className="flex justify-between mx-20 py-5">
-          <h1 className="font-bold text-3xl flex items-center">
+        <div className="flex md:justify-between md:mx-20 py-5">
+          <h1 className="font-bold text-3xl flex items-center md:mx-0 mx-auto">
             {/* logo  */}
             <svg
               width="100%"
@@ -30,10 +30,15 @@ function Header(props) {
             {/* logo end  */}
             {props.title}
           </h1>
-          <div className="flex items-center">
+          <div className="hidden md:flex items-center">
             <ul className="flex flex-wrap">{props.children}</ul>
           </div>
         </div>
+      </div>
+      <div className="md:hidden block">
+       <ul className="flex flex-wrap justify-between pt-2">
+       {props.children}
+       </ul>
       </div>
     </div>
   );
