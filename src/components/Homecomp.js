@@ -2,7 +2,7 @@ import React from "react";
 
 function Homecomp() {
   return (
-    <div className="grid grid-cols-3 mx-20 my-5">
+    <div className="md:grid grid-cols-3 md:mx-20 my-5">
       <div className="col-span-2 mt-10">
         <h1 className="font-bold text-lg p-2">Help and support the creative community</h1>
         <h1 className="text-6xl font-extrabold p-2">We are</h1>

@@ -3,9 +3,9 @@ import React from "react";
 function About() {
   return (
     <div>
-      <div className="mx-20 p-5">
+      <div className="md:mx-20 p-5">
         <h1 className="font-bold text-2xl p-3">About us</h1>
-        <div className="grid grid-cols-2">
+        <div className="md:grid md:grid-cols-2">
           <div class="m-1">
             <img
               className="w-full p-10"

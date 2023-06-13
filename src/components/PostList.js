@@ -52,7 +52,7 @@ function PostList() {
               </h1>
               <div className="p-3">{post.body}</div>
               <div className="flex p-2">
-                <span className="mx-3 flex">
+                <span className="md:mx-3 flex">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -69,7 +69,7 @@ function PostList() {
                   </svg>
                   {Math.ceil(Math.random() * 1000)} Likes
                 </span>
-                <span className="mx-3 flex">
+                <span className="md:mx-3 flex">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
