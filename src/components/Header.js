@@ -8,7 +8,7 @@ function Header(props) {
     return (
         <div>
         <marquee> {Welcome} <button onClick={()=>setWelcome("Thank You For Subscribe.")} className="text-red-500">Click Here</button></marquee>
-      <div className="bg-gray-300">
+      <div className="bg-blue-300">
         <div className="flex justify-between mx-20 py-5">
           <h1 className="font-bold text-3xl flex items-center">
             {/* logo  */}
@@ -30,8 +30,8 @@ function Header(props) {
             {/* logo end  */}
             {props.title}
           </h1>
-          <div>
-            <ul className="flex">{props.children}</ul>
+          <div className="flex items-center">
+            <ul className="flex flex-wrap">{props.children}</ul>
           </div>
         </div>
       </div>
