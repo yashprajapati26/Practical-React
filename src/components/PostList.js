@@ -40,12 +40,12 @@ function PostList() {
 
   return (
     <>
-      <h1 className="my-3 p-5 mx-20 text-center font-bold text-3xl shadow-lg shadow-blue-500 rounded-xl border">
+      <h1 className="my-3 md:p-5 p-3 mx-20 text-center font-bold text-3xl shadow-lg shadow-blue-500 rounded-xl border">
         Popular Posts
       </h1>
       <div className="md:mx-20 flex flex-wrap">
         {pagePost.map((post) => (
-          <div key={post.id} className="flex flex-col w-1/2">
+          <div key={post.id} className="flex md:flex-col md:w-1/2">
             <div className="bg-blue-300 p-5 m-3 rounded-lg">
               <h1 className="rounded p-2 w-fit bg-blue-100 text-xl font-cold">
                 {post.id}. {post.title}
