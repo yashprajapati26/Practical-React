@@ -23,6 +23,7 @@ import { Route, Routes, Link } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import About from "./pages/About";
 import Subscribe from "./pages/Subscribe";
+import LifeCycle from "./components/LifeCycle";
 
 function App() {
   function MyFun(name) {
@@ -44,7 +45,8 @@ function App() {
         {/* <Route path="subscribe" element={<Subscribe/>} /> */}
       </Routes>
       <Footer title="Blogger"></Footer>
-      {/* <Provider store={store}> */}
+      {/* <LifeCycle/> */}
+      <Provider store={store}>
 
       {/* <Login btnname="Submit" title="Login" /> */}
       {/* <Home></Home> */}
@@ -68,17 +70,17 @@ function App() {
       {/* <PostList></PostList> */}
       {/* <UseState /> */}
       {/* <UseReducer /> */}
-      {/* <div>
+      <div className="bg-red-600">
               <p>Cake Name : Cup Cake </p>
               <AddCake />
-            </div> */}
+      </div>
 
       {/* <PostListClass /> */}
 
       {/* function pass in props */}
       {/* <Footer clickHandler={MyFun} /> */}
 
-      {/* </Provider> */}
+      </Provider>
     </div>
   );
 }
