@@ -1,29 +1,11 @@
+import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Counter from "./components/Counter";
-import ErrorBoundry from "./components/ErrorBoundry";
-import ErrorHandling from "./components/ErrorHandling";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import About from "./pages/About";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Portal from "./components/Portal";
-import User from "./components/User";
-import CountClick from "./components/CountClick";
-import CompA from "./components/context/CompA";
-import { UserProvider } from "./components/context/userContext";
-import PostList from "./components/axios/PostList";
-import PostListClass from "./components/axios/PostListClass";
-import UseState from "./components/Hooks/UseState";
-import UseEffecf from "./components/Hooks/UseEffect";
-import UseReducer from "./components/Hooks/UseReducer";
-import { Provider } from "react-redux";
-import store from "./redux/store";
-import AddCake from "./components/redux/AddCake";
-import { Route, Routes, Link } from "react-router-dom";
 import SignUp from "./pages/SignUp";
-import About from "./pages/About";
-import Subscribe from "./pages/Subscribe";
-import LifeCycle from "./components/LifeCycle";
 
 function App() {
   function MyFun(name) {
@@ -46,7 +28,7 @@ function App() {
       </Routes>
       <Footer title="Blogger"></Footer>
       {/* <LifeCycle/> */}
-      <Provider store={store}>
+      {/* <Provider store={store}> */}
 
       {/* <Login btnname="Submit" title="Login" /> */}
       {/* <Home></Home> */}
@@ -70,17 +52,17 @@ function App() {
       {/* <PostList></PostList> */}
       {/* <UseState /> */}
       {/* <UseReducer /> */}
-      <div className="bg-red-600">
+      {/* <div className="bg-red-600">
               <p>Cake Name : Cup Cake </p>
               <AddCake />
-      </div>
+      </div> */}
 
       {/* <PostListClass /> */}
 
       {/* function pass in props */}
       {/* <Footer clickHandler={MyFun} /> */}
 
-      </Provider>
+      {/* </Provider> */}
     </div>
   );
 }
