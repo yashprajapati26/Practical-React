@@ -7,7 +7,7 @@ export default class LifeCycle extends Component {
     this.state = {
       name: "yash",
     };
-    console.log('constructor');
+    console.log("constructor");
   }
   //2
   static getDerivedStateFromProps(props, state) {
@@ -23,8 +23,9 @@ export default class LifeCycle extends Component {
   //4
   render() {
     return (
-      <div>
-        LifeCycle
+      <div className="text-center">
+        <h1 className="text-3xl">React LifeCycle Demo </h1>
+        <h3>open console to see output</h3>
         {console.log("render :")}
       </div>
     );

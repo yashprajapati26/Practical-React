@@ -23,7 +23,6 @@ function PostList() {
   let firstIndex = lastIndex - postPerPage;
   let pagePost = posts.slice(firstIndex, lastIndex);
 
-
   const changePage = (page) => {
     console.log(page);
     setCurruntPage(page);
@@ -90,11 +89,13 @@ function PostList() {
             </div>
           </div>
         ))}
+
         <Paginator
           TotalPages={Math.ceil(posts.length / postPerPage)}
           changePage={changePage}
           PrevPage={PrevPage}
           NextPage={NextPage}
+          setPostPerPage={setPostPerPage}
         />
 
         {/* <button

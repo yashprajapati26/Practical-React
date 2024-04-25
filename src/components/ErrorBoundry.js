@@ -18,7 +18,11 @@ export default class ErrorBoundry extends Component {
     if (this.state.hasError) {
       return <h1>Something went wrong</h1>;
     } else {
-      return this.props.children;
+      return (
+        <div className="text-center text-3xl font-bold">
+          Hero Name is {this.props.children}
+        </div>
+      );
     }
   }
 }

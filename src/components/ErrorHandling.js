@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
-function ErrorHandling({heroName}) {
-    if(heroName === 'Joker'){
-        throw new Error('Not a hero !')
-    }
-  return (
-    <div>
-        {heroName}
-    </div>
-  )
+function ErrorHandling({ heroName }) {
+  if (
+    heroName === "Joker" ||
+    heroName === "Gabbar Singh" ||
+    heroName === "Mongambo"
+  ) {
+    throw new Error("Not a hero !");
+  }
+  return <div>{heroName}</div>;
 }
 
-export default ErrorHandling
+export default ErrorHandling;
