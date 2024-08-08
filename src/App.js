@@ -1,53 +1,62 @@
-import { Link, Route, Routes } from "react-router-dom";
-import "./App.css";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import About from "./pages/About";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
-import Subscribe from "./pages/Subscribe";
-import LifeCycle from "./components/LifeCycle";
-import ErrorHandling from "./components/ErrorHandling";
-import ErrorBoundry from "./components/ErrorBoundry";
-import Portal from "./components/Portal";
-import { useState } from "react";
-import Counter from "./components/Hoc/Counter";
-import Hoc from "./components/Hoc/Hoc";
-import CompA from "./components/context/CompA";
+import { Link, Route, Routes } from 'react-router-dom'
+import './App.css'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import About from './pages/About'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import SignUp from './pages/SignUp'
+import Subscribe from './pages/Subscribe'
+import LifeCycle from './components/LifeCycle'
+import ErrorHandling from './components/ErrorHandling'
+import ErrorBoundry from './components/ErrorBoundry'
+import Portal from './components/Portal'
+import { useState } from 'react'
+import Counter from './components/Hoc/Counter'
+import Hoc from './components/Hoc/Hoc'
+import CompA from './context/CompA'
+import Todos from './components/Todos'
+import UseMemoHook from './components/Hooks/UseMemoHook'
 // Enhance DisplayText with the withUpperCase HOC
-const CounterComp = Hoc(Counter);
+const CounterComp = Hoc(Counter)
 
 function App() {
   function MyFun(name) {
-    console.log("My fun called ....Hello", name);
+    console.log('My fun called ....Hello', name)
   }
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false)
+  const [input, setInput] = useState(0)
 
-  const openModal = () => setShowModal(true);
-  const closeModal = () => setShowModal(false);
+  const openModal = () => setShowModal(true)
+  const closeModal = () => setShowModal(false)
   return (
     <div>
       {/* ---- HOC Concept ----- */}
-      <div className="border border-black p-5 mx-56 m-5">
+      {/* <div className="border border-black p-5 mx-56 m-5">
         <h1 className="text-center text-5xl py-5">HOC Concept</h1>
         <CounterComp text="Product"></CounterComp>
         <CounterComp text="Sells"></CounterComp>
-      </div>
-      {/* Render Props Pattern */}
-      <Login
+      </div> */}
+      {/* ---- End HOC Concept ----*/}
+
+
+      {/* Render Props Pattern */}      
+      {/* <Login
         title="Render Props Pattern"
         btnname="Check"
-        renderPropFunction={(value) => (
-          <span className="translate-x-2 text-center py-2">
-            Welcome, {value}
-          </span>
-        )}
-      />
+        renderPropFunction={(value) => <span className="translate-x-2 text-center py-2">Welcome, {value}</span>}
+      /> */}
+      {/* ---- End Render Props Pattern ---- */}
+
+
+
       {/* ---- LifeCycle ----- */}
-      <LifeCycle />
+      {/* <LifeCycle /> */}
       {/* ---- End LifeCycle ----- */}
-      {/* ------ Routing  ------ */}{" "}
+
+
+
+      {/* ------ Routing  ------ */}{' '}
       <Header title="Blogger">
         <li className="mx-5 text-lg">
           <Link to="">Home</Link>
@@ -70,11 +79,7 @@ function App() {
             <Login
               title="Login"
               btnname="Login"
-              renderPropFunction={(value) => (
-                <span className="translate-x-2 text-center py-2">
-                  Welcome, {value}
-                </span>
-              )}
+              renderPropFunction={(value) => <span className="translate-x-2 text-center py-2">Welcome, {value}</span>}
             ></Login>
           }
         />
@@ -84,6 +89,9 @@ function App() {
       </Routes>
       <Footer title="Blogger"></Footer>
       {/* ####  end routing concept #### */}
+
+
+
       {/* ----- Error Handling Concept ----- */}
       <ErrorBoundry>
         <ErrorHandling heroName="Batman" />
@@ -93,27 +101,48 @@ function App() {
         {/* <ErrorHandling heroName="Gabbar Sing" /> */}
       </ErrorBoundry>
       {/* ----- End Error Handling Concept ----- */}
+
+
+
       {/* contextAPI conccept  */}
       <CompA />
       {/* End contextAPI */}
+
+
+
       {/* portal concept */}
-      <button
-        className="bg-blue-500 text-white p-2 rounded"
-        onClick={openModal}
-      >
+      <button className="bg-blue-500 text-white p-2 rounded" onClick={openModal}>
         Open Modal
       </button>
       {showModal && (
         <>
           {/* Here's the portal */}
-          <Portal
-            title="My Modal"
-            content="This is the modal content"
-            onClose={closeModal}
-          ></Portal>
+          <Portal title="My Modal" content="This is the modal content" onClose={closeModal}></Portal>
         </>
       )}
       {/* End portal concept */}
+
+
+
+
+
+      {/* ---- useMemo concept ---- */}
+      <Todos />
+      <div className="flex flex-col items-center justify-center">
+        <h2 className="text-center">Here we Apply memorization with useMemo Hook :  </h2>
+
+        <input
+          className="border border-black "
+          value={input}
+          onChange={(e) => {
+            setInput(e.target.value)
+          }}
+        ></input>
+        <UseMemoHook value={input} />
+      </div>
+      {/* ---- End UseMemo Concept ----  */}
+
+
       {/* <Provider store={store}> */}
       {/* <Login btnname="Submit" title="Login" /> */}
       {/* <Home></Home> */}
@@ -139,7 +168,7 @@ function App() {
       {/* <Footer clickHandler={MyFun} /> */}
       {/* </Provider> */}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

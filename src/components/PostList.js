@@ -1,41 +1,40 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import Paginator from "../pages/Paginator";
-
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import Paginator from '../pages/Paginator'
+import UseMemo from './Hooks/UseMemo'
 function PostList() {
-  const [posts, setPosts] = useState([]);
-  const [curruntPage, setCurruntPage] = useState(1);
-  const [postPerPage, setPostPerPage] = useState(10);
+  const [posts, setPosts] = useState([])
+  const [curruntPage, setCurruntPage] = useState(1)
+  const [postPerPage, setPostPerPage] = useState(10)
 
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/posts")
+      .get('https://jsonplaceholder.typicode.com/posts')
       .then((res) => {
-        console.log(res);
-        setPosts(res.data);
+        console.log(res)
+        setPosts(res.data)
       })
       .catch((err) => {
-        console.error(err);
-      });
-  }, []);
+        console.error(err)
+      })
+  }, [])
 
-  let lastIndex = curruntPage * postPerPage;
-  let firstIndex = lastIndex - postPerPage;
-  let pagePost = posts.slice(firstIndex, lastIndex);
+  let lastIndex = curruntPage * postPerPage
+  let firstIndex = lastIndex - postPerPage
+  let pagePost = posts.slice(firstIndex, lastIndex)
 
   const changePage = (page) => {
-    console.log(page);
-    setCurruntPage(page);
-  };
+    console.log(page)
+    setCurruntPage(page)
+  }
 
   const PrevPage = () => {
-    if (curruntPage - 1 != 0) setCurruntPage(curruntPage - 1);
-  };
+    if (curruntPage - 1 != 0) setCurruntPage(curruntPage - 1)
+  }
 
   const NextPage = () => {
-    if (curruntPage + 1 <= Math.ceil(posts.length / postPerPage))
-      setCurruntPage(curruntPage + 1);
-  };
+    if (curruntPage + 1 <= Math.ceil(posts.length / postPerPage)) setCurruntPage(curruntPage + 1)
+  }
 
   return (
     <>
@@ -120,7 +119,7 @@ function PostList() {
         <LifeCycle></LifeCycle> */}
       </div>
     </>
-  );
+  )
 }
 
-export default PostList;
+export default PostList

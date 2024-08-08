@@ -1,49 +1,46 @@
-import React, { useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useRef, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 function Login(props) {
   // this is uncontrolled component becouse useRef control by DOM itseld rather than react.
-  const usernameRef = useRef(null);
-  const passwordRef = useRef(null);
-  const [credential, setCredential] = useState({});
+  const usernameRef = useRef(null)
+  const passwordRef = useRef(null)
+  const [credential, setCredential] = useState({})
   const LoginHandler = async (event) => {
-    event.preventDefault();
-    setCredential({
-      username: usernameRef.current.value,
-      password: passwordRef.current.value,
-    });
-    showAlert();
-  };
+    event.preventDefault()
+    if (props.onSubmitForTest) {
+      const loginRequestItemForTest = {
+        emailOrUsername: 'testUsername',
+        password: 'testPassword',
+      }
+      props.onSubmitForTest(loginRequestItemForTest)
+    } else {
+      setCredential({
+        username: usernameRef.current.value,
+        password: passwordRef.current.value,
+      })
+    }
+    showAlert()
+  }
 
   const showAlert = () => {
-    alert(
-      "You are logged with the following credentials - ",
-      credential.username
-    );
-  };
+    alert('You are logged with the following credentials - ', credential.username)
+  }
 
   const handleOnChange = (event) => {
-    setCredential({ ...credential, username: event.target.value });
-  };
+    setCredential({ ...credential, username: event.target.value })
+  }
 
   useEffect(() => {
-    const timeoutId = setTimeout(
-      () =>
-        console.log(
-          "Welcome, ",
-          props?.renderPropFunction(credential.username)
-        ),
-      2000
-    );
-    return () => clearTimeout(timeoutId);
-  }, [credential.username]);
+    const timeoutId = setTimeout(() => console.log('Welcome, ', props?.renderPropFunction(credential.username)), 2000)
+    return () => clearTimeout(timeoutId)
+  }, [credential.username])
 
   return (
     <div className="flex flex-col h-screen justify-center items-center -mt-20">
       <div className="border border-gray-300 rounded-lg p-5 shadow-2xl w-auto text-center">
         <h3 className="font-bold text-center p-5 text-2xl">{props.title}</h3>
-        {credential.username !== "" &&
-          props?.renderPropFunction(credential.username)}
+        {credential.username === '' ? '' : props?.renderPropFunction(credential.username)}
         <form onSubmit={LoginHandler} className="flex flex-col">
           <input
             type="text"
@@ -60,10 +57,7 @@ function Login(props) {
             ref={passwordRef}
             className="mb-2 p-1 border border-gray-500 rounded"
           />
-          <button
-            type="submit"
-            className="font-bold bg-sky-500 text-white p-1 rounded"
-          >
+          <button type="submit" className="font-bold bg-sky-500 text-white p-1 rounded">
             {props.btnname}
           </button>
         </form>
@@ -78,7 +72,7 @@ function Login(props) {
         </Link>
       </p>
     </div>
-  );
+  )
 }
 
-export default Login;
+export default Login
